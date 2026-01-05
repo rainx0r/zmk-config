@@ -4,9 +4,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+
+#define CHORD_TIMEOUT_MS 35
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
 // -----------------------------------------------------------------------------------------
@@ -17,52 +23,73 @@
         combos {
                 compatible = "zmk,combos";
 
+                combos_sys_layer {
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
+                    key-positions = <37 39>;
+                    bindings = <&mo 3>;
+                };
+
                 combos_esc {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <19 20>;
                     bindings = <&kp ESC>;
                 };
+                combos_tab {
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
+                    key-positions = <15 16>;
+                    bindings = <&kp TAB>;
+                };
 
                 combos_lpar {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <4 5>;
                     bindings = <&kp LPAR>;
                 };
                 combos_rpar {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <6 7>;
                     bindings = <&kp RPAR>;
                 };
 
                 combos_lbrc {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <16 17>;
                     bindings = <&kp LBRC>;
                 };
                 combos_rbrc {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <18 19>;
                     bindings = <&kp RBRC>;
                 };
 
                 combos_lbkt {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <28 29>;
                     bindings = <&kp LBKT>;
                 };
                 combos_rbkt {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <30 31>;
                     bindings = <&kp RBKT>;
                 };
 
+                combos_tilde {
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
+                    key-positions = <21 22>;
+                    bindings = <&kp TILDE>;
+                };
+                combos_grave {
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
+                    key-positions = <22 23>;
+                    bindings = <&kp GRAVE>;
+                };
                 combos_fslh {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <33 34>;
                     bindings = <&kp FLSH>;
                 };
                 combos_pipe {
-                    timeout-ms = <25>;
+                    timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <34 35>;
                     bindings = <&kp PIPE>;
                 };
@@ -82,36 +109,51 @@
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp TAB
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp LALT
+                  &kp LGUI &mo 1 &kp SPACE   &lt 2 RET &kp BSPC &kp LALT
                         >;
                 };
                 one_layer {
 // -----------------------------------------------------------------------------------------
-// |  `  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
-// |     |     |     |     |     |     |   | LFT | DWN |  UP | RGT |  -  |  =  |
-// |     |     |     |     |     |     |   | HOM | END |  [  |  ]  |  \  |     |
-//                   |     |     |     |   |     |     |     |
+// |    |  !  |  @  |  #  |  $  |  %  |   |  7  |  8  |  9  |    |    |     |
+// |    |  ^  |  &  |  *  |  -  |  =  |   |  4  |  5  |  6  |    |    |     |
+// |    |     |     |     |  _  |  +  |   |  1  |  2  |  3  |    |    |     |
+//                  |     |     |     |   |     |  0  |     |
                         display-name = "One";
                         bindings = <
-   &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5     &kp N6   &kp N7   &kp N8   &kp N9    &kp N0    &kp DEL
-   &trans    &trans &trans &trans &trans &trans     &kp LEFT &kp DOWN &kp UP   &kp RIGHT &kp MINUS &kp EQUAL
-   &trans    &trans &trans &trans &trans &trans     &kp HOME &kp END  &kp LBKT &kp RBKT  &kp BSLH  &trans
-                           &trans &trans &trans     &trans   &trans   &trans
+   &trans &kp LS(N1) &kp LS(N2) &kp LS(N3) &kp LS(N4)    &kp LS(N5)       &kp N7 &kp N8 &kp N9 &trans &trans &trans
+   &trans &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp MINUS     &kp EQUAL        &kp N4 &kp N5 &kp N6 &trans &trans &trans
+   &trans &trans     &trans     &trans     &kp LS(MINUS) &kp LS(EQUAL)    &kp N1 &kp N2 &kp N3 &trans &trans &trans
+                                                 &trans &trans &trans     &trans &kp N0 &trans
                         >;
                 };
 
-                fkey_layer {
+                nav_layer {
 // -----------------------------------------------------------------------------------------
-// |     |  F1  |  F2         |  F3      |  F4      |  F5  |   |  F6  |  F7  |  F8  |  F9  |  F10  |  F11  |
-// |     |      |  BT_CLR     |  BT_PRV  |  BT_NXT  |      |   |      |      |      |      |       |       |
-// |     |      |  Lang_macos |  Lang_win |         |      |   |      |      |      |      |       |       |
-//                                       |     |     |     |   |     |     |     |
-                        display-name = "F Keys";
+// |     |      |           |           |           |            |   |  HOME    |  END      |         |            |       |  DEL  |
+// |     |      |  MS WHLL  |  MD WHLD  |  MS WHLU  | MS WHLR    |   |  LEFT    |  DOWN     |  UP     |  RIGHT     |       |       |
+// |     |      |           |           |           |            |   |  MS LEFT |  MS DOWN  |  MS UP  |  MS RIGHT  |  MS1  |  MS2  |
+//                                             |     |     |     |   |     |     |     |
+                        display-name = "Nav";
                         bindings = <
-   &trans &kp F1 &kp F2        &kp F3         &kp F4     &kp F5     &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
-   &trans &trans &bt BT_CLR    &bt BT_PRV     &bt BT_NXT &trans     &trans &trans &trans &trans &trans &kp F12
-   &trans &kp LC(LA(SPACE))    &kp LS(LALT)   &trans     &trans     &trans &trans &trans &trans &trans &trans
-                    	                   &trans &trans &trans     &trans &trans &trans
+   &trans &trans &trans         &trans         &trans       &kp HOME            &kp END        &trans         &trans       &trans          &trans   &kp DEL
+   &trans &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT     &kp LEFT       &kp DOWN       &kp UP       &kp RIGHT       &trans   &trans
+   &trans &trans &trans         &trans         &trans       &trans              &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp MB1 &mkp MB2
+                    	                               &trans &trans &trans     &trans &trans &trans
+                        >;
+                };
+
+                sys_layer {
+// -----------------------------------------------------------------------------------------
+// |     |  F1  |  F2         |  F3       |  F4          |  F5  |   |  F6  |  F7  |  F8  |  F9  |  F10  |  F11  |
+// |     |      |  BT_CLR     |  BT_PRV   |  BT_NXT      |      |   |      |      |      |      |       |  F12  |
+// |     |      |  Lang_macos |  Lang_win |  Screen_mac  |      |   |      |      |      |      |       |       |
+//                                            |     |     |     |   |     |     |     |
+                        display-name = "Sys";
+                        bindings = <
+   &trans &kp F1 &kp F2        &kp F3         &kp F4         &kp F5     &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
+   &trans &trans &bt BT_CLR    &bt BT_PRV     &bt BT_NXT     &trans     &trans &trans &trans &trans &trans &kp F12
+   &trans &kp LC(LA(SPACE))    &kp LS(LALT)   &kp LS(LG(N4)) &trans     &trans &trans &trans &trans &trans &trans
+                    	                       &trans &trans &trans     &trans &trans &trans
                         >;
                 };
 
