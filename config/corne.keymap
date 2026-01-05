@@ -86,7 +86,7 @@
                 combos_fslh {
                     timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <33 34>;
-                    bindings = <&kp FLSH>;
+                    bindings = <&kp FSLH>;
                 };
                 combos_pipe {
                     timeout-ms = <CHORD_TIMEOUT_MS>;
