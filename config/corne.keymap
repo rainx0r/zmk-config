@@ -27,7 +27,7 @@
                     timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <37 39>;
                     bindings = <&mo 3>;
-                    slow-release = true;
+                    slow-release = <true>;
                 };
 
                 combos_esc {
