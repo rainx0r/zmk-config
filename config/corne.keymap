@@ -55,6 +55,17 @@
                     key-positions = <30 31>;
                     bindings = <&kp RBKT>;
                 };
+
+                combos_fslh {
+                    timeout-ms = <25>;
+                    key-positions = <33 34>;
+                    bindings = <&kp FLSH>;
+                };
+                combos_pipe {
+                    timeout-ms = <25>;
+                    key-positions = <34 35>;
+                    bindings = <&kp PIPE>;
+                };
         };
 
         keymap {
