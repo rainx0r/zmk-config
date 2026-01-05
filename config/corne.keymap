@@ -18,9 +18,42 @@
                 compatible = "zmk,combos";
 
                 combos_esc {
-                    timeout-ms = <50>;
+                    timeout-ms = <25>;
                     key-positions = <19 20>;
                     bindings = <&kp ESC>;
+                };
+
+                combos_lpar {
+                    timeout-ms = <25>;
+                    key-positions = <4 5>;
+                    bindings = <&kp LPAR>;
+                };
+                combos_rpar {
+                    timeout-ms = <25>;
+                    key-positions = <6 7>;
+                    bindings = <&kp RPAR>;
+                };
+
+                combos_lbrc {
+                    timeout-ms = <25>;
+                    key-positions = <16 17>;
+                    bindings = <&kp LBRC>;
+                };
+                combos_rbrc {
+                    timeout-ms = <25>;
+                    key-positions = <18 19>;
+                    bindings = <&kp RBRC>;
+                };
+
+                combos_lbkt {
+                    timeout-ms = <25>;
+                    key-positions = <29 30>;
+                    bindings = <&kp LBKT>;
+                };
+                combos_rbkt {
+                    timeout-ms = <25>;
+                    key-positions = <31 32>;
+                    bindings = <&kp RBKT>;
                 };
         };
 
