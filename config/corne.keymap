@@ -94,10 +94,10 @@
                     key-positions = <22 23>;
                     bindings = <&kp GRAVE>;
                 };
-                combos_fslh {
+                combos_bslh {
                     timeout-ms = <CHORD_TIMEOUT_MS>;
                     key-positions = <33 34>;
-                    bindings = <&kp FSLH>;
+                    bindings = <&kp BSLH>;
                 };
                 combos_pipe {
                     timeout-ms = <CHORD_TIMEOUT_MS>;
