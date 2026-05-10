@@ -140,15 +140,15 @@
 
                 nav_layer {
 // -----------------------------------------------------------------------------------------
-// |     |      |           |           |           |            |   |  HOME    |  END      |         |            |       |  DEL  |
+// |     |      |           |  End_word |           |            |   |  HOME    |  END      |         |            |       |  DEL  |
 // |     |      |  MS WHLL  |  MD WHLD  |  MS WHLU  | MS WHLR    |   |  LEFT    |  DOWN     |  UP     |  RIGHT     |       |       |
-// |     |      |           |           |           |            |   |  MS LEFT |  MS DOWN  |  MS UP  |  MS RIGHT  |  MS1  |  MS2  |
+// |     |      |           |           |           | Begin_word |   |  MS LEFT |  MS DOWN  |  MS UP  |  MS RIGHT  |  MS1  |  MS2  |
 //                                             |     |     |     |   |     |     |     |
                         display-name = "Nav";
                         bindings = <
-   &trans &trans &trans         &trans         &trans       &trans              &kp HOME       &kp END        &trans       &trans          &trans   &kp DEL
+   &trans &trans &trans         &kp LA(RIGHT)  &trans       &trans              &kp HOME       &kp END        &trans       &trans          &trans   &kp DEL
    &trans &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP &msc SCRL_RIGHT     &kp LEFT       &kp DOWN       &kp UP       &kp RIGHT       &trans   &trans
-   &trans &trans &trans         &trans         &trans       &trans              &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp MB1 &mkp MB2
+   &trans &trans &trans         &trans         &trans       &kp LA(LEFT)        &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &mkp MB1 &mkp MB2
                     	                               &trans &trans &trans     &trans &trans &trans
                         >;
                 };
