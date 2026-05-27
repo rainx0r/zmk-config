@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: m165437
       url-base: https://github.com/M165437
-    - name: amgskobo
-      url-base: https://github.com/amgskobo
+    - name: rainx0r
+      url-base: https://github.com/rainx0r
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -15,7 +15,7 @@ manifest:
       remote: m165437
       revision: main
     - name: zmk-input-inertia
-      remote: amgskobo
+      remote: rainx0r
       revision: main
   self:
     path: config
