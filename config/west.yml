@@ -9,13 +9,13 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: main
       import: app/west.yml
     - name: nice-view-gem
       remote: m165437
-      revision: 7794ebf7f75d7e16cb05240bcffe6c5a45ef5b44
+      revision: main
     - name: zmk-input-inertia
       remote: amgskobo
-      revision: 230107d357a7b6473d62673c318c254c285cc12c
+      revision: main
   self:
     path: config
