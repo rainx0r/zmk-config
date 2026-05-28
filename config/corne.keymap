@@ -195,9 +195,9 @@
     move-threshold-start = <15>;
     move-threshold-stop = <1>;
 
-    scroll-decay-factor-int = <85>;
-    scroll-report-interval-ms = <65>;
-    scroll-threshold-start = <2>;
+    scroll-decay-factor-int = <96>;
+    scroll-report-interval-ms = <16>;
+    scroll-threshold-start = <1>;
     scroll-threshold-stop = <0>;
 
     cancel-scroll-inertia-on-ctrl;
