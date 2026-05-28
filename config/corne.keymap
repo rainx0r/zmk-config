@@ -184,7 +184,7 @@
 };
 
 &msc {
-    trigger-period-ms = <16>;
+    trigger-period-ms = <8>;
 };
 
 &zip_inertia {
@@ -194,19 +194,8 @@
     move-report-interval-ms = <16>;
     move-threshold-start = <15>;
     move-threshold-stop = <1>;
-
-    scroll-decay-factor-int = <96>;
-    scroll-report-interval-ms = <16>;
-    scroll-threshold-start = <1>;
-    scroll-threshold-stop = <0>;
-
-    cancel-scroll-inertia-on-ctrl;
 };
 
 &mmv_input_listener {
-    input-processors = <&zip_inertia>;
-};
-
-&msc_input_listener {
     input-processors = <&zip_inertia>;
 };
